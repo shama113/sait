@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Профиль</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+<header class="header">
+    <nav class="navbar">
+        <a href="index.html" class="logo">ВашеИмя</a>
+        <ul class="menu">
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="edit-profile.html">Редактировать</a></li>
+            <li><a href="resume.pdf" target="_blank">Резюме</a></li>
+            <li><a href="https://github.com/yourname" target="_blank">GitHub</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="profile-section">
+    <div class="profile-box">
+        <img id="profilePhoto" class="profile-photo" src="https://via.placeholder.com/150">
+        <h1 id="profileName">Имя пользователя</h1>
+        <p id="profileDescription">Описание…</p>
+
+        <h3>Навыки</h3>
+        <ul id="profileSkills" class="skills-list"></ul>
+
+        <h3>Контакты</h3>
+        <p>Email: <span id="profileEmail"></span></p>
+        <p>GitHub: <a id="profileGithub" href="#" target="_blank"></a></p>
+        <p>Резюме: <a href="resume.pdf" target="_blank">Открыть PDF</a></p>
+    </div>
+</section>
+
+<footer class="footer">
+    <p>© 2025 Ваше Имя</p>
+</footer>
+
+<script src="api.js"></script>
+<script>
+    loadProfile();
+</script>
+
+</body>
+</html>
