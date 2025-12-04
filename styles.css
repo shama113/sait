@@ -1,81 +1,437 @@
-body {
-    margin: 0;
-    font-family: "Arial", sans-serif;
-    background: #fafafa;
-    color: #333;
+/* styles.css */
+/* ============================= */
+/* Общие стили и сброс */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #141414 0%, #282828 100%);
+  color: #eee;
+}
+
+body, html {
+  height: 100%;
+  min-height: 100vh;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ============================= */
+/* Хедер */
 
 .header {
-    background: #1e1e25;
-    padding: 15px 0;
+  padding: 30px 0;
+  text-align: center;
+  background: #222;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.7);
+  animation: fadeInDown 1s ease forwards;
 }
 
-.navbar {
-    width: 90%;
-    margin: auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.header h1 {
+  font-size: 3rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #f0f0f0;
+  text-shadow: 0 0 5px #9d79f0;
 }
 
-.logo {
-    color: #fff;
-    font-size: 22px;
-    text-decoration: none;
+.header p {
+  font-size: 1.2rem;
+  color: #aaa;
+  margin-top: 8px;
+  font-style: italic;
+  text-shadow: 0 0 3px #333;
 }
 
-.menu {
-    list-style: none;
-    display: flex;
-    gap: 15px;
+/* Анимация fadeInDown */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.menu a {
-    color: #fff;
-    text-decoration: none;
+/* ============================= */
+/* Основной контент */
+
+.main-content {
+  background: rgba(30, 30, 30, 0.9);
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.8);
+  animation: fadeInUp 1s ease 0.5s forwards;
+  opacity: 0;
 }
 
-.hero {
-    padding: 120px 20px;
-    background: linear-gradient(45deg, #4e8cff, #6c4bff);
-    color: white;
-    text-align: center;
+/* Анимация fadeInUp */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================= */
+/* Просмотр профиля */
+
+.profile-view {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.profile-photo-container {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid #7c5cff;
+  box-shadow: 0 0 20px #7c5cff88;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.profile-photo-container:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 40px #a995ffcc;
+}
+
+.profile-photo-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: filter 0.3s ease;
+}
+
+.photo-overlay {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  padding: 6px 0;
+  background: rgba(124, 92, 255, 0.8);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.9rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 0 0 50% 50%;
+}
+
+.profile-photo-container:hover .photo-overlay {
+  opacity: 1;
+}
+
+.profile-info {
+  max-width: 600px;
+  flex-grow: 1;
+}
+
+.profile-info h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #a995ff;
+  margin-bottom: 12px;
+  text-shadow: 0 0 10px #a995ffbb;
+}
+
+.profile-bio {
+  font-size: 1.2rem;
+  font-style: italic;
+  color: #dcd6f7;
+  margin-bottom: 20px;
+  line-height: 1.5;
+  max-width: 600px;
+}
+
+/* Навыки */
+.profile-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
+.profile-skills .skill {
+  background: linear-gradient(135deg, #7c5cff, #a995ff);
+  padding: 8px 20px;
+  border-radius: 25px;
+  font-weight: 700;
+  font-size: 1rem;
+  color: #fff;
+  box-shadow: 0 0 12px #7c5cffcc;
+  cursor: default;
+  user-select: none;
+  transition: background 0.3s ease;
+}
+
+.profile-skills .skill:hover {
+  background: linear-gradient(135deg, #a995ff, #7c5cff);
+}
+
+/* Ссылки */
+.profile-links {
+  display: flex;
+  gap: 20px;
+}
+
+.profile-links a {
+  color: #a995ff;
+  font-weight: 700;
+  font-size: 1.2rem;
+  text-decoration: none;
+  border: 2px solid #7c5cff;
+  padding: 8px 18px;
+  border-radius: 30px;
+  box-shadow: 0 0 15px #7c5cffcc;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.profile-links a:hover {
+  background: #7c5cff;
+  color: #fff;
+}
+
+/* Кнопка редактирования */
+#edit-btn {
+  margin-top: 30px;
+  padding: 15px 35px;
+  font-size: 1.2rem;
+  border-radius: 50px;
+  border: none;
+  background: #7c5cff;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 0 25px #a995ffcc;
+  transition: background 0.3s ease;
+  align-self: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#edit-btn:hover {
+  background: #a995ff;
+  box-shadow: 0 0 35px #7c5cffcc;
+}
+
+/* ============================= */
+/* Форма редактирования */
+
+.profile-edit {
+  background: #1a1a1a;
+  padding: 40px;
+  margin-top: 40px;
+  border-radius: 15px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.85);
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  animation: fadeInForm 0.8s ease forwards;
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.profile-edit.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.profile-edit h2 {
+  color: #a995ff;
+  font-size: 2rem;
+  margin-bottom: 25px;
+  text-align: center;
+  text-shadow: 0 0 10px #a995ffbb;
+}
+
+.profile-edit label {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 6px;
+  font-size: 1.1rem;
+  color: #ddd;
+}
+
+.profile-edit input[type="text"],
+.profile-edit input[type="url"],
+.profile-edit textarea {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  border: none;
+  font-size: 1.1rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  outline: none;
+  background: #2c2c2c;
+  color: #eee;
+  box-shadow: inset 0 0 10px #444;
+  transition: box-shadow 0.3s ease;
+  resize: vertical;
+}
+
+.profile-edit input[type="text"]:focus,
+.profile-edit input[type="url"]:focus,
+.profile-edit textarea:focus {
+  box-shadow: 0 0 15px #7c5cff;
+}
+
+.profile-edit textarea {
+  min-height: 100px;
+}
+
+/* Ошибки */
+.error-message {
+  color: #ff6b6b;
+  font-size: 0.9rem;
+  margin-top: -15px;
+  margin-bottom: 15px;
+  font-weight: 600;
+  font-style: italic;
+  min-height: 18px;
+}
+
+/* Кнопки формы */
+.form-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin-top: 20px;
 }
 
 .btn {
-    background: #fff;
-    padding: 10px 20px;
-    border-radius: 8px;
-    color: #333;
-    font-weight: bold;
-    text-decoration: none;
+  cursor: pointer;
+  border-radius: 50px;
+  border: none;
+  font-size: 1.1rem;
+  font-weight: 700;
+  padding: 15px 40px;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  user-select: none;
 }
 
-.project-card {
-    background: white;
+.btn-primary {
+  background: #7c5cff;
+  color: #fff;
+  box-shadow: 0 0 25px #a995ffcc;
+}
+
+.btn-primary:hover {
+  background: #a995ff;
+  box-shadow: 0 0 40px #7c5cffcc;
+}
+
+.btn-secondary {
+  background: #444;
+  color: #ccc;
+  box-shadow: none;
+}
+
+.btn-secondary:hover {
+  background: #666;
+}
+
+/* ============================= */
+/* Мобильная адаптивность */
+@media (max-width: 768px) {
+  .profile-view {
+    flex-direction: column;
+    align-items: center;
+  }
+  .profile-photo-container {
+    width: 130px;
+    height: 130px;
+  }
+  .profile-info h2 {
+    font-size: 2rem;
+  }
+  .profile-skills .skill {
+    font-size: 0.9rem;
+  }
+  .profile-links a {
+    font-size: 1rem;
+    padding: 6px 14px;
+  }
+  .main-content {
     padding: 20px;
-    border-radius: 10px;
-    width: 30%;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+  .profile-edit {
+    padding: 25px;
+  }
+  .btn {
+    padding: 12px 30px;
+    font-size: 1rem;
+  }
 }
 
-.profile-box {
-    width: 60%;
-    margin: 50px auto;
-    background: white;
-    padding: 40px;
-    border-radius: 10px;
+/* ============================= */
+/* Анимации */
+
+/* fadeInForm для формы */
+@keyframes fadeInForm {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
-.profile-photo {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
+/* Дополнительные плавные эффекты для интерактивности */
+
+.profile-photo-container {
+  will-change: transform, box-shadow;
 }
 
-.edit-form input,
-.edit-form textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
+.profile-photo-container:hover {
+  will-change: transform, box-shadow;
 }
+
+/* Свечение кнопок при наведении */
+.btn-primary:hover, .btn-primary:focus {
+  outline: none;
+  box-shadow: 0 0 20px #a995ff, 0 0 40px #7c5cff;
+  transition: box-shadow 0.4s ease;
+}
+
+/* Свечение ссылок */
+.profile-links a:hover {
+  text-shadow: 0 0 15px #7c5cff;
+}
+
+/* ============================= */
+/* Дополнительные стили для мелких элементов */
+
+.hidden {
+  display: none !important;
+}
+
