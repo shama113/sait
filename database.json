@@ -1,0 +1,8 @@
+{
+    "name": "Ваше Имя",
+    "description": "Начинающий разработчик.",
+    "email": "example@mail.com",
+    "github": "https://github.com/shama113",
+    "photo": "",
+    "skills": ["HTML", "CSS", "JavaScript"]
+}
