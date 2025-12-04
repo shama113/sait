@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Редактировать профиль</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+<header class="header">
+    <nav class="navbar">
+        <a href="index.html" class="logo">ВашеИмя</a>
+        <ul class="menu">
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="profile.html">Профиль</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="edit-section">
+    <h1>Редактирование профиля</h1>
+
+    <form id="editForm" class="edit-form">
+
+        <label>Имя:</label>
+        <input type="text" id="name" required>
+
+        <label>Описание:</label>
+        <textarea id="description" required></textarea>
+
+        <label>Email:</label>
+        <input type="email" id="email" required>
+
+        <label>GitHub:</label>
+        <input type="url" id="github" required>
+
+        <label>URL фотографии (опционально):</label>
+        <input type="url" id="photo">
+
+        <label>Навыки (через запятую):</label>
+        <input type="text" id="skills" required>
+
+        <button type="submit" class="btn">Сохранить</button>
+    </form>
+
+    <p id="saveStatus"></p>
+</section>
+
+<script src="api.js"></script>
+<script>
+    loadProfileToForm();
+
+    document.getElementById('editForm').addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const profile = {
+            name: name.value,
+            description: description.value,
+            email: email.value,
+            github: github.value,
+            photo: photo.value,
+            skills: skills.value.split(",").map(s=>s.trim())
+        };
+
+        const response = await updateProfile(profile);
+
+        document.getElementById('saveStatus').innerText =
+            response.success ? "Сохранено!" : "Ошибка сохранения";
+    });
+</script>
+
+</body>
+</html>
