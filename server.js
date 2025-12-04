@@ -40,7 +40,7 @@ function initializeDataFile() {
   if (!fs.existsSync(DATA_FILE)) {
     const defaultData = {
       name: 'Иван Иванов',
-      photo: 'https://via.placeholder.com/150',
+      photo: 'https://images.unsplash.com/photo-1603386329225-868f9f4a0d82?auto=format&fit=crop&w=800&q=80',
       bio: 'Я фронтенд-разработчик, увлекаюсь веб-технологиями и анимациями.',
       skills: ['HTML', 'CSS', 'JavaScript'],
       github: 'https://github.com/ivanivanov',
