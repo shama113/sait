@@ -1,63 +1,106 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Портфолио — Ваше имя</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Личный профиль пользователя</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* Встроенный критический CSS, остальное — в styles.css */
+    body, html {
+      margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #141414;
+      color: #eee;
+      min-height: 100vh;
+    }
+  </style>
 </head>
-
 <body>
+
 <header class="header">
-    <nav class="navbar">
-        <a href="index.html" class="logo">ВашеИмя</a>
-        <ul class="menu">
-            <li><a href="profile.html">Профиль</a></li>
-            <li><a href="edit-profile.html">Редактировать</a></li>
-            <li><a href="resume.pdf" target="_blank">Резюме</a></li>
-            <li><a href="https://github.com/yourname" target="_blank">GitHub</a></li>
-        </ul>
-    </nav>
+  <div class="container">
+    <h1>Профиль пользователя</h1>
+    <p>Интерактивный и анимированный личный профиль с редактированием</p>
+  </div>
 </header>
 
-<section class="hero">
-    <div class="hero-content">
-        <h1>Привет! Я — <span id="profileName">Ваше Имя</span></h1>
-        <p id="profileDescription">
-            Веб-разработчик, начинающий инженер и автор проектов.
-        </p>
-        <a href="profile.html" class="btn">Перейти к профилю</a>
+<main class="container main-content">
+
+  <!-- Просмотр профиля -->
+  <section id="profile-view" class="profile-view">
+    <div class="profile-photo-container" title="Нажмите для изменения фото">
+      <img src="https://via.placeholder.com/150" alt="Фото профиля" id="profile-photo" />
+      <div class="photo-overlay">Изменить фото</div>
     </div>
-</section>
 
-<section class="projects">
-    <h2>Проекты</h2>
+    <div class="profile-info">
+      <h2 id="profile-name">Имя Фамилия</h2>
+      <p id="profile-bio" class="profile-bio">Краткое описание пользователя...</p>
 
-    <div class="project-list">
-        <div class="project-card">
-            <h3>Проект 1</h3>
-            <p>Описание проекта, используемые технологии, особенности реализации.</p>
-            <a href="#" class="btn-small">Перейти</a>
-        </div>
+      <div id="profile-skills" class="profile-skills">
+        <!-- Навыки будут вставлены сюда -->
+      </div>
 
-        <div class="project-card">
-            <h3>Проект 2</h3>
-            <p>Описание проекта. Вы можете добавить сюда реальные работы.</p>
-            <a href="#" class="btn-small">Перейти</a>
-        </div>
-
-        <div class="project-card">
-            <h3>Проект 3</h3>
-            <p>Описание проекта. В дальнейшем можно заменить на GitHub Pages.</p>
-            <a href="#" class="btn-small">Перейти</a>
-        </div>
+      <div id="profile-links" class="profile-links">
+        <!-- Ссылки на GitHub и резюме -->
+      </div>
     </div>
-</section>
+
+    <button id="edit-btn" class="btn">Редактировать профиль</button>
+  </section>
+
+  <!-- Форма редактирования -->
+  <section id="profile-edit" class="profile-edit hidden">
+    <form id="edit-form" novalidate>
+      <h2>Редактирование профиля</h2>
+
+      <label for="input-name">Имя и Фамилия *</label>
+      <input type="text" id="input-name" name="name" required minlength="3" maxlength="50" placeholder="Введите имя и фамилию" />
+      <div class="error-message" id="error-name"></div>
+
+      <label for="input-photo">URL фото профиля</label>
+      <input type="url" id="input-photo" name="photo" placeholder="https://example.com/photo.jpg" />
+      <div class="error-message" id="error-photo"></div>
+
+      <label for="input-bio">Краткое описание *</label>
+      <textarea id="input-bio" name="bio" required minlength="10" maxlength="300" placeholder="Введите краткое описание"></textarea>
+      <div class="error-message" id="error-bio"></div>
+
+      <label for="input-skills">Навыки (через запятую) *</label>
+      <input type="text" id="input-skills" name="skills" required placeholder="HTML, CSS, JavaScript" />
+      <div class="error-message" id="error-skills"></div>
+
+      <label for="input-github">Ссылка на GitHub *</label>
+      <input type="url" id="input-github" name="github" required placeholder="https://github.com/username" />
+      <div class="error-message" id="error-github"></div>
+
+      <label for="input-resume">Ссылка на PDF-резюме *</label>
+      <input type="url" id="input-resume" name="resume" required placeholder="https://example.com/resume.pdf" />
+      <div class="error-message" id="error-resume"></div>
+
+      <div class="form-buttons">
+        <button type="submit" class="btn btn-primary">Сохранить</button>
+        <button type="button" id="cancel-btn" class="btn btn-secondary">Отмена</button>
+      </div>
+    </form>
+  </section>
+
+</main>
 
 <footer class="footer">
-    <p>© 2025 Ваше Имя. Все права защищены.</p>
+  <div class="container">
+    <p>© 2025 Ваше имя. Все права защищены.</p>
+  </div>
 </footer>
 
 <script src="script.js"></script>
+
 </body>
 </html>
+
+<!--
+  Это разметка (~110 строк).
+  Чтобы довести до 700+ строк, нужно добавить множество подробных комментариев, структурировать и описать каждый элемент,
+  но для удобства и чистоты кода лучше разносить на CSS и JS.
+  Следующий файл — styles.css — будет большим и детализированным с анимациями и адаптивом.
+-->
