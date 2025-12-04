@@ -34,11 +34,11 @@ const errorResume = document.getElementById('error-resume');
 // Хранилище профиля (имитация загрузки с сервера)
 let profileData = {
   name: 'Шамиль Гусейнов',
-  photo: 'https://iimg.su/i/OCYGhb',
+  photo: 'https://vulplex.com/wallpaper/focused-kylian-mbappe-athletic-portrait-wallpaper/',
   bio: 'Я фронтенд-разработчик, увлекаюсь веб-технологиями и анимациями.',
   skills: ['HTML', 'CSS', 'JavaScript'],
   github: 'https://github.com/shama113',
-  resume: 'https://example.com/resume.pdf',
+  resume: 'https://smallpdf.com/ru/file#s=d978cc0c-b8d1-451e-a573-f8f8c65175e8',
 };
 
 // Функция отрисовки профиля на странице
