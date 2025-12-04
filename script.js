@@ -33,11 +33,11 @@ const errorResume = document.getElementById('error-resume');
 
 // Хранилище профиля (имитация загрузки с сервера)
 let profileData = {
-  name: 'Иван Иванов',
-  photo: 'https://via.placeholder.com/150',
+  name: 'Шамиль Гусейнов',
+  photo: 'https://iimg.su/i/OCYGhb',
   bio: 'Я фронтенд-разработчик, увлекаюсь веб-технологиями и анимациями.',
   skills: ['HTML', 'CSS', 'JavaScript'],
-  github: 'https://github.com/ivanivanov',
+  github: 'https://github.com/shama113',
   resume: 'https://example.com/resume.pdf',
 };
 
